@@ -7,5 +7,9 @@
         <a href="/admin" class="btn btn-primary">Iniciar session</a>
         <a href="/" class="btn btn-primary">Volver</a>
     </div>
+    {% for b in blogs %}
+    <h5>{{b.tittle}}</h5>
+    {% endfor %}
+    <a href="{%url 'create_blog' %}">Crear blog</a>
 </div>
 {% endblock %}
