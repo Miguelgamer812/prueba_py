@@ -7,12 +7,14 @@ from django.shortcuts import render
 
 # Create your views here.
 def segundo_item(request):
-    return render(request, 'segundo_item.html')
-
-def home(request):
     blogs = Blog.objects.all()
     context = {'blogs':blogs,}
     return render(request, 'segundo_item.html',context)
+
+# def home(request):
+#     blogs = Blog.objects.all()
+#     context = {'blogs':blogs,}
+#     return render(request, 'segundo_item.html',context)
 
 def create_blog(request):
     if request.method == 'POST':
