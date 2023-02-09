@@ -1,4 +1,5 @@
 {% extends 'home.html' %}
+{% load static %}
 {% block content %}
 <div class="container pt-5">
     <div style="height: 70px;"></div>
@@ -6,7 +7,7 @@
         <h1>Prueba Dos de Python!</h1>
 
         <a href="/admin" class="btn btn-primary">Iniciar sesion</a>
-        <a href="/" class="btn btn-primary">Volver</a>
+        <a href="/" class="btn btn-secondary">Volver</a>
     </div>
     <div class="container pt-5">
         <div class="container">
@@ -27,6 +28,9 @@
                     <th scope="col" _msthash="2224131" _msttexthash="159510" style="direction: ltr; text-align: left;">
                         Imagen
                     </th>
+                    <th scope="col" _msthash="2224131" _msttexthash="159510" style="direction: ltr; text-align: left;">
+                        Borrar
+                    </th>
                 </thead>
                 {% for b in blogs %}
                 <tbody>
@@ -45,7 +49,13 @@
                         </td>
                         <td scope="col" _msthash="2224131" _msttexthash="159510"
                             style="direction: ltr; text-align: left;">
-                            <img src="../media/images/{{b.image}}" alt="20px">
+                            {% if b.images.url %}
+                                <img src="{% url 'media' %}{{b.image.url}}" alt="Photo" style="width: 50px;">
+                            {% endif %}
+                        </td>
+                        <td scope="col" _msthash="2224131" _msttexthash="159510"
+                            style="direction: ltr; text-align: left;">
+                            <a href="{%url 'create_blog' %}" class="btn" style="background-color: red;color: white;">Borrar</a>
                         </td>
                     </tr>
                 </tbody>

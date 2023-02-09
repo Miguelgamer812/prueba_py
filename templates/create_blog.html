@@ -11,17 +11,17 @@
 <body>
     <div class="container pt-5">
         <div style="height: 70px;"></div>
-        <h2>crear nuevo blog</h2>
+        <h1>Crear nuevo blog</h1>
         <div class="container">
-            <form method="post" style="display: flex;">
+            <form action="" method="post" style="display: flex;flex-direction: column;flex-wrap: wrap;">
                 {% csrf_token %}
                 {{ form }}
                 <div style="height: 20px;"></div>
-                <input type="submit" value="Guardar" class="btn btn-primary">
+                <input type="submit" value="Guardar" class="btn btn-primary" style="width: 100px;">
             </form>
         </div>
         <div style="height: 20px;"></div>
-        <a href="/blogs/" class="btn btn-primary">Volver</a>
+        <a href="/blogs/" class="btn btn-secondary">Volver</a>
         <div style="height: 70px;"></div>
     </div>
 
