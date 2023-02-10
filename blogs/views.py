@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import BlogForm
 from .models import Blog
 import os
@@ -33,3 +33,11 @@ def create_blog(request):
 
 def success(request):
     return HttpResponse('successfully uploaded')
+
+def delete_data(request,pk):
+    data  = get_object_or_404(Blog, pk=pk)
+    blogs = Blog.objects.all()
+    if request.method == 'POST':
+        data.delete()
+        return redirect('segundo_item')
+    return render(request, 'segundo_item.html', {'blogs':blogs})

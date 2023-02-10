@@ -55,7 +55,11 @@
                         </td>
                         <td scope="col" _msthash="2224131" _msttexthash="159510"
                             style="direction: ltr; text-align: left;">
-                            <a href="{%url 'create_blog' %}" class="btn" style="background-color: red;color: white;">Borrar</a>
+                            <form action="{% url 'delete_data' b.id %}" method="post">
+                                {% csrf_token %}
+                                <input value="Borrar" type="submit" class="btn" style="background-color: red;color: white;">
+
+                            </form>
                         </td>
                     </tr>
                 </tbody>
